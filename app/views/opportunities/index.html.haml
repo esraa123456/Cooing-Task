@@ -1,0 +1,33 @@
+%p#notice= notice
+%h1 Dynamic Forms
+= link_to new_opportunity_path, class: 'btn btn-new' do
+  %i.fa.fa-plus
+  = t('text.new_form')
+%br/
+%table
+  %thead
+    %tr
+      %th{:colspan => "3"}
+    %thead
+      %tr
+        %th=t('text.title')
+        %th=t('text.description')
+        %th=t('text.image')
+        %th=t('text.name')
+        %th=t('text.phone')
+        %th=t('text.email')
+        %th=t('text.property_type')
+        %th
+  %tbody
+    - @opportunities.each do |opportunity|
+      %tr
+        %td= link_to opportunity.title
+        %td= opportunity.description
+        link_to opportunity.file_file_name, opportunity.file.url
+        %td= opportunity.name
+        %td= opportunity.phone
+        %td= opportunity.email
+        %td= opportunity.property_type
+        %td= link_to 'Show', opportunity
+        %td= link_to 'Edit', edit_opportunity_path(opportunity)
+        %td= link_to 'Destroy', opportunity, method: :delete, data: { confirm: 'Are you sure?' }

@@ -1,0 +1,42 @@
+%p#notice= notice
+= link_to 'Edit', edit_opportunity_path(@opportunity)
+|
+= link_to 'Back', opportunities_path
+.top-area
+  .nav-links
+    %li
+      %h3.page-title= t('text.view_opportunity')
+  .nav-controls
+    = link_to edit_opportunity_path(@client,@opportunity), class: "btn btn-info" do
+      = icon("pencil")
+      = t('text.edit')
+    &nbsp;
+    = link_to opportunities_path(@opportunity), class: "btn btn-cancel" do
+      = t('text.back')
+  .oneline
+
+%br/
+%dl.dl-horizontal
+  %dt= t('text.title')
+  %dd= @opportunity.title
+  %dt= t('text.description')
+  %dd= @opportunity.description
+  - if not @opportunity.file.url == "/files/original/missing.png"
+    %dt= t('text.file')
+    %dd= link_to "Download", @opportunity.file.url
+  %dt= t('text.name')
+  %dd= @opportunity.name
+  %dt= t('text.phone')
+  %dd= @opportunity.phone
+  %dt= t('text.email')
+  %dd= @opportunity.email
+  %dt= t('text.job_title')
+  %dd= @opportunity.job_title
+  %dt= t('text.property_type')
+  %dd= @opportunity.property_type
+  %br/
+  %dt= t('attributes.created_at')
+  %dd= local_time @opportunity.created_at
+  %dt= t('attributes.updated_at')
+  %dd= local_time @opportunity.updated_at
+  
