@@ -24,6 +24,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'haml-rails', '~> 2.0'
 gem "paperclip", "~> 6.0.0"
 gem 'pry', '~> 0.12.2'
+gem 'enumerize'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

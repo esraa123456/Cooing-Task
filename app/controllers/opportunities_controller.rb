@@ -72,6 +72,7 @@ class OpportunitiesController < ApplicationController
       params.require(:opportunity).permit(
         :title,
         :description,
+        :image,
         :name,
         :phone,
         :email,
