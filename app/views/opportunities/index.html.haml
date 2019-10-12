@@ -18,12 +18,14 @@
         %th=t('text.email')
         %th=t('text.property_type')
         %th
+        %th
+        %th
   %tbody
     - @opportunities.each do |opportunity|
       %tr
-        %td= link_to opportunity.title
-        %td= opportunity.description
-        link_to opportunity.file_file_name, opportunity.file.url
+        %td= link_to opportunity.title, opportunity
+        %td= truncate(opportunity&.description, :length => 30)
+        %td= opportunity.image
         %td= opportunity.name
         %td= opportunity.phone
         %td= opportunity.email
